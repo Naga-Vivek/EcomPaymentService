@@ -4,6 +4,7 @@ package com.scaler.ecompaymentservice.controller;
 import com.razorpay.RazorpayException;
 import com.scaler.ecompaymentservice.dtos.InitiatePaymentRequestDto;
 import com.scaler.ecompaymentservice.services.PaymentService;
+import com.stripe.exception.StripeException;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,7 +20,7 @@ public class PaymentController {
     }
 
     @PostMapping("/")
-    public String initiatePayment(@RequestBody InitiatePaymentRequestDto requestDto) throws RazorpayException {
+    public String initiatePayment(@RequestBody InitiatePaymentRequestDto requestDto) throws RazorpayException, StripeException {
         return paymentService.initiatePayment(requestDto.getOrderId(),
                 requestDto.getAmount(),
                 requestDto.getPhoneNumber());

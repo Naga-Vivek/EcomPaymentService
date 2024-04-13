@@ -4,13 +4,13 @@ import com.razorpay.PaymentLink;
 import org.json.JSONObject;
 import com.razorpay.RazorpayClient;
 import com.razorpay.RazorpayException;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Date;
 
-@Component
+@Service
 public class RazorpayPaymentGateway implements PaymentGateway {
     private RazorpayClient razorpayClient;
 
